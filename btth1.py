@@ -1,3 +1,18 @@
+# Sử dụng str.maketrans("", "", "!@#$") để tạo bảng ánh xạ các ký tự đặc biệt cần xóa khỏi chuỗi log.
+# Bảng ánh xạ được tạo có dạng:
+# ord('!') → None
+# ord('@') → None
+# ord('#') → None
+# ord('$') → None
+# Sử dụng translate() để áp dụng bảng ánh xạ lên toàn bộ chuỗi log.
+# Khi translate() gặp ký tự có giá trị ánh xạ là None, ký tự đó sẽ bị loại bỏ khỏi chuỗi.
+# Việc dùng translate() giúp làm sạch dữ liệu log trước khi thực hiện các bước xử lý tiếp theo.
+# translate() chỉ cần duyệt chuỗi một lần và tra cứu trực tiếp trong bảng ánh xạ.
+# Hiệu suất của translate() cao hơn việc dùng nhiều lần replace() hoặc tự viết vòng lặp để xóa từng ký tự.
+# Sau khi làm sạch chuỗi, chương trình sử dụng split(';') để tách dữ liệu thành danh sách các log riêng biệt.
+# Kết hợp strip() để loại bỏ khoảng trắng thừa ở đầu và cuối mỗi log.
+# Sử dụng điều kiện if log.strip() để loại bỏ các phần tử rỗng phát sinh trong quá trình tách chuỗi.
+
 raw_logs = [] 
 processed_logs = []
 
